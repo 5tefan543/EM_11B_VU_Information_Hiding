@@ -36,6 +36,7 @@ def c():
     empirical_change_rate = np.mean(empirical_change_vector) # β̂ : proportion of pixels that changed
     print("Empirical change rate: ", empirical_change_rate)
 
+    # estimate embedding: alpha_hat = 2 * beta_hat
     estimated_embedding_rate = ws.attack(stego_array) # α̂ : how many bits were embedded proportionally to the total number of pixels
     print("Estimated embedding rate: ", estimated_embedding_rate)
 

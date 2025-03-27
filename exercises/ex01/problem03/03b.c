@@ -22,6 +22,9 @@ int main() {
     printf("bitwise XOR: ");
     x1 = (x0 & ~0b1) ^ m;
     printf("x1 = (x0 & ~0b1) ^ m = %d\n\n", x1);
+    
+    x1 = x0 ^ x0 % 2 ^ m;
+    printf("x1 = x0 ^ x0 %% 2 ^ m = %d\n\n", x1);
 
     return EXIT_SUCCESS;
 }

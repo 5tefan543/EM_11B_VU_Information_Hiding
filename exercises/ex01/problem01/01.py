@@ -30,7 +30,7 @@ def show_images_side_by_side(images, titles, filename):
 
 def a(image_array: np.ndarray):
     print("a) Increment all the pixels by 1. What PSNR do you expect? Measure the PSNR experimentally.")
-    image_array = image_array.astype(np.int16) # Prevent overflows in the next step    
+    image_array = image_array.astype(np.uint16) # Prevent overflows in the next step    
     modified_image_array = np.clip(image_array + 1, UINT8_MIN, UINT8_MAX).astype(np.uint8)
 
     show_images_side_by_side(
@@ -214,8 +214,9 @@ def e(image_array: np.ndarray):
     # DC: extract coefficient at (0, 0) in each block
     dc_values = dct_coeffs.Y[:, :, 0, 0].flatten()
 
-    # AC: extract coefficient at (11, 44) in each block
-    # ac_values = dct_coeffs.Y[:, :, 11, 44].flatten()
+    # AC: extract coefficient at (1, 1) and (4, 4) in each block
+    ac_values_1_1 = dct_coeffs.Y[:, :, 1, 1].flatten()
+    ac_values_4_4 = dct_coeffs.Y[:, :, 4, 4].flatten()
 
     plt.figure(figsize=(12, 5))
     plt.subplot(1, 2, 1)
